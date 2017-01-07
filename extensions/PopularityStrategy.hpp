@@ -9,7 +9,8 @@
 namespace nfd {
 namespace fw {
 
-const ndn::Name STRATEGY_NAME("ndn:/localhost/nfd/strategy/popularity-strategy");
+//const ndn::Name STRATEGY_NAME("ndn:/localhost/nfd/strategy/popularity-strategy");
+//static const ndn::Name STRATEGY_NAME;
 
 class PopularityStrategy : public MulticastStrategy {
 
@@ -20,11 +21,7 @@ public:
   afterReceiveInterest(const Face& inFace, const Interest& interest,
                        const shared_ptr<pit::Entry>& pitEntry);
   
-  //static const ndn::Name STRATEGY_NAME("ndn:/localhost/nfd/strategy/popularity-strategy")
-
-  
-
-
+  static const ndn::Name STRATEGY_NAME;
 };//end class
 
 

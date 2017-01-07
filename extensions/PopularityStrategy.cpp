@@ -5,11 +5,12 @@ using namespace std;
 namespace nfd {
 namespace fw {
 
-//const ndn::Name PopularityStrategy::STRATEGY_NAME = "ndn:/localhost/nfd/strategy/popularity-strategy";
+const ndn::Name PopularityStrategy::STRATEGY_NAME = "ndn:/localhost/nfd/strategy/popularity-strategy";
 
 NFD_REGISTER_STRATEGY(PopularityStrategy);
 
-PopularityStrategy::PopularityStrategy(Forwarder& forwarder, const Name& name) : MulticastStrategy(forwarder, name)
+PopularityStrategy::PopularityStrategy(Forwarder& forwarder, const Name& name)
+ : MulticastStrategy(forwarder, name)
 {
    cout<<"Inside ctor for PopularityStrategy"<<endl;
 }//end ctor
@@ -20,7 +21,7 @@ PopularityStrategy::afterReceiveInterest(const Face& inFace,
                                const shared_ptr<pit::Entry>& pitEntry) 
 {
   //behave just like the multicast strategy
-  MulticastStrategy::afterReceiveInterest(inFace, interest, pitEntry); 
+//  MulticastStrategy::afterReceiveInterest(inFace, interest, pitEntry); 
 
   //also, maintain popularity eventually
   cout<<"In afterReceiveInterest, with interest: "<<interest.getName().toUri()<<endl;
